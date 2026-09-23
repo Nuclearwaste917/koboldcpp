@@ -1922,7 +1922,7 @@ def detect_memory_cu(gpumem_ignore_limit_min, gpumem_ignore_limit_max):
                         continue
                     elif in_pool_section and current_agent_is_gpu and line.startswith("Size:"):
                         # Extract VRAM size in KB and convert to MB
-                        size_match = re.search(r'(\d+)\(0x[0-9a-fA-F]+\)\s*KB', line)
+                        size_match = re.search(r'(\d+)\s*\(0x[0-9a-fA-F]+\)\s*KB', line)
                         if size_match:
                             vram_kb = int(size_match.group(1))
                             vram_mb = vram_kb // 1024
